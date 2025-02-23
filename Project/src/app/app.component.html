@@ -1,0 +1,17 @@
+<main>
+  <header class="store-header">
+    <img class="store-logo" src="https://th.bing.com/th/id/R.ad16926579631be6efc7b783100c99bc?rik=Ps8mxLicWyZ1eA&riu=http%3a%2f%2fsokoskins.shop%2fcdn%2fshop%2fcollections%2fROUND_LAB_LOGO_TWO_LINES_1200x1200.webp%3fv%3d1684479579&ehk=9gj9BexdPn%2fl9L8IzhJ9JbSTDGe3n9TgyrW093%2fwfuA%3d&risl=&pid=ImgRaw&r=0" alt="logo" aria-hidden="true" />
+    <h1 class = "store-name">ROUND LAB</h1>
+  </header>
+  <section class = "navigation">
+    <a *ngFor = "let category of categories" href="#" (click)="selectCategory(category)" class="category-link">
+      {{category}}
+    </a>
+    
+  </section>
+  <section class="content">
+    <h1 class = "selected-category">{{selectedCategory}}</h1>
+    <app-products [selectedCategory] = "selectedCategory"></app-products>
+    
+  </section>
+</main>
