@@ -1,0 +1,23 @@
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    align-items: center;
+    height: 60px;
+
+}
+
+ul{
+    margin-top: 30px;
+    display: flex;
+    gap: 40px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+    font-size: 30px;
+}
