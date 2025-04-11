@@ -1,0 +1,41 @@
+<div style="max-width: 800px; margin: 30px auto; font-family: 'Segoe UI', sans-serif; font-size: 18px; line-height: 1.6;">
+  <h2 style="text-align: center; color: #2c3e50; font-size: 30px;">Companies</h2>
+
+  <!-- 🔍 Поиск -->
+  <input
+    [(ngModel)]="searchTerm"
+    type="text"
+    placeholder="Search company..."
+    style="width: 100%; padding: 12px; margin-bottom: 20px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;"
+  />
+
+  <!-- 🔃 Сортировка -->
+  <button (click)="toggleSort()" style="margin-bottom: 20px; padding: 8px 16px; border: none; background: #3498db; color: white; border-radius: 6px; cursor: pointer;">
+    Sort: {{ sortAsc ? 'A → Z' : 'Z → A' }}
+  </button>
+
+  <!-- 📋 Список компаний -->
+  <ul style="list-style-type: none; padding: 0;">
+    <li
+      *ngFor="let company of filteredCompanies()"
+      (click)="onCompanyClick(company.id)"
+      style="background: #f9f9f9; margin-bottom: 10px; padding: 15px 20px; border-left: 5px solid #2980b9; border-radius: 8px; cursor: pointer; transition: 0.2s;"
+      onmouseover="this.style.background='#ecf0f1'"
+      onmouseout="this.style.background='#f9f9f9'"
+    >
+      <strong>{{ company.name }}</strong> <span style="color: #666;">({{ company.city }})</span>
+    </li>
+  </ul>
+
+  <!-- 🧾 Вакансии -->
+  <hr *ngIf="selectedVacancies.length > 0" style="margin: 30px 0;">
+  <h3 *ngIf="selectedVacancies.length > 0" style="text-align: center; color: #27ae60;">Vacancies</h3>
+  <ul *ngIf="selectedVacancies.length > 0" style="padding: 0;">
+    <li
+      *ngFor="let vacancy of selectedVacancies"
+      style="padding: 12px 15px; background: #e9f7ef; margin-bottom: 10px; border-left: 4px solid #2ecc71; border-radius: 4px;"
+    >
+      {{ vacancy.name }} — <strong>{{ vacancy.salary }}</strong> ₸
+    </li>
+  </ul>
+</div>
